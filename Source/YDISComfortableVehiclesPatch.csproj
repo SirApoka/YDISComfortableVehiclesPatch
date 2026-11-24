@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Build (needs the .NET 10 SDK; no RimWorld path needed):
+      dotnet build -c Release
+
+    Two targets:
+      net48    vs RimWorld 1.6 reference assemblies -> SHIPPED to ..\Assemblies\
+               (the 1.7 game loads net48 mod assemblies)
+      net10.0  vs RimWorld 1.7.5005-unstable references -> NOT shipped (obj only).
+               Compile-time check that every API used still exists on the 1.7 build.
+  -->
+
+  <PropertyGroup>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>YDISComfortableVehiclesPatch</AssemblyName>
+    <RootNamespace>YDISComfortableVehiclesPatch</RootNamespace>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RimWorld16Ref Condition="'$(RimWorld16Ref)' == ''">1.6.*</RimWorld16Ref>
+    <RimWorld17Ref Condition="'$(RimWorld17Ref)' == ''">1.7.5005-unstable</RimWorld17Ref>
+  </PropertyGroup>
+
+  <!-- Shipped build -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <OutputPath>..\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="$(RimWorld16Ref)" ExcludeAssets="runtime" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- API check build: never copied into the mod -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <OutputPath>obj\apicheck\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="$(RimWorld17Ref)" ExcludeAssets="runtime" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Harmony: compile-time only; the Harmony mod provides it at runtime -->
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" ExcludeAssets="runtime" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

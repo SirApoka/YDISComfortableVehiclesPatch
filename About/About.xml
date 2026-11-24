@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>You Drive, I Sleep + Comfortable Vehicles Compatibility Patch</name>
+  <author>SirApoka</author>
+  <packageId>SirApoka.YDISComfortableVehiclesPatch</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+  <description>Lets pawns inside vehicles regain sleep while a vehicle caravan is stopped, when You Drive, I Sleep and Comfortable Vehicles are both active.
+
+WHY THIS EXISTS
+On long trips with my vehicle caravans, my colonists never regained sleep while the caravan was stopped for the night, the driver included. With Comfortable Vehicles alone, drivers and gunners already miss out; with You Drive, I Sleep also loaded, nobody inside a vehicle rests.
+
+WHAT IT DOES
+Comfortable Vehicles cancels vanilla caravan rest for every pawn inside a vehicle and handles rest itself, but it steps aside for caravan members when You Drive, I Sleep is active, and it never rests drivers or gunners. You Drive, I Sleep only gives rest while the caravan is moving, and never to the driver. Together, nobody inside a vehicle rests while the caravan is stopped.
+
+When the caravan is stopped, this patch gives each pawn inside a vehicle the same rest vanilla gives a caravan pawn (bedroll effectiveness if one is assigned), unless another mod already rested it that tick. While the caravan is moving it does nothing, so You Drive, I Sleep keeps its behaviour.
+
+If either mod is missing, the patch disables itself and logs a warning.
+
+AI DISCLOSURE
+This mod was coded with AI assistance. I directed the work, made the design decisions and tested it in my own game with about 500 mods. The source code is public so anyone can review it: https://github.com/SirApoka/YDISComfortableVehiclesPatch
+
+Safe to add to or remove from an existing save. This mod stores no data.
+
+Requires Vehicle Framework, You Drive, I Sleep and Comfortable Vehicles. Unofficial patch, not affiliated with or endorsed by the authors of those mods. Preview art adapted from the previews of You Drive, I Sleep by SpaceMoth and Comfortable Vehicles by Eclair155. Licensed under CC BY-NC 4.0.</description>
+  <url>https://github.com/SirApoka/YDISComfortableVehiclesPatch</url>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>SmashPhil.VehicleFramework</packageId>
+      <displayName>Vehicle Framework</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3014915404</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Spacemoth.YouDriveISleep</packageId>
+      <displayName>You Drive, I Sleep</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3324430833</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Eclair155.comfortablevehicles</packageId>
+      <displayName>Comfortable Vehicles</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3677424409</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>smashphil.vehicleframework</li>
+    <li>spacemoth.youdriveisleep</li>
+    <li>eclair155.comfortablevehicles</li>
+  </loadAfter>
+</ModMetaData>
