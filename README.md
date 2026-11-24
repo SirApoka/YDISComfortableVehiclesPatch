@@ -4,6 +4,8 @@
 
 Lets pawns inside vehicles regain sleep while a vehicle caravan is stopped, when [You Drive, I Sleep](https://steamcommunity.com/sharedfiles/filedetails/?id=3324430833) and [Comfortable Vehicles](https://steamcommunity.com/sharedfiles/filedetails/?id=3677424409) are both active.
 
+Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3845125160
+
 Unofficial patch, not affiliated with or endorsed by the authors of those mods. Preview art adapted from the previews of You Drive, I Sleep by SpaceMoth and Comfortable Vehicles by Eclair155.
 
 ## Why this exists
